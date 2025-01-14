@@ -4,11 +4,13 @@ import './navbar.scss';
 import { MdOutlineTravelExplore } from 'react-icons/md';
 import { IoIosCloseCircle } from 'react-icons/io';
 import { TbGridDots } from "react-icons/tb";
+import Reservas from '../Clientes/Reservas/Reservas';
 
 
 const Navbar = () => {
 
     const [active, setActive] = useState('navBar');
+    const [modalIsOpen, setModalIsOpen] = useState(false);
     
     const showNav = () => {
         setActive('navBar activeNavbar');
@@ -16,6 +18,14 @@ const Navbar = () => {
 
     const removeNavbar = () => {
         setActive('navBar');
+    }
+
+    const openModal = () => {
+        setModalIsOpen(true);
+    }
+
+    const closeModal = () => {
+        setModalIsOpen(false);
     }
     
 
@@ -32,35 +42,35 @@ const Navbar = () => {
                 <div className={active}>
                     <ul className="navLists flex">
                         <li className="navItem">
-                            <a href="." className="navLink">Home</a>
+                            <a href="." className="navLink">Inicio</a>
                         </li>
 
                         <li className="navItem">
-                            <a href="." className="navLink">Packages</a>
+                            <a href="." className="navLink">Paquetes</a>
                         </li>
 
                         <li className="navItem">
-                            <a href="." className="navLink">Shop</a>
+                            <a href="." className="navLink">Comercio</a>
                         </li>
                         
                         <li className="navItem">
-                            <a href="." className="navLink">About</a>
+                            <a href="." className="navLink">Acerca de</a>
                         </li>
 
                         <li className="navItem">
-                            <a href="." className="navLink">Pages</a>
+                            <a href="." className="navLink">paginas</a>
                         </li>
 
                         <li className="navItem">
-                            <a href="." className="navLink">News</a>
+                            <a href="." className="navLink">Noticias</a>
                         </li>
 
                         <li className="navItem">
-                            <a href="." className="navLink">Contact</a>
+                            <a href="." className="navLink">Contacto</a>
                         </li>
 
-                        <button className='btn'>
-                            <a href="." className="navLink">Book Now</a>
+                        <button className='btn' onClick={openModal}>
+                            Reserva ahora
                         </button>
                     </ul>
 
@@ -73,6 +83,7 @@ const Navbar = () => {
                     <TbGridDots className="icon"/> 
                     </div>
             </header>
+            <Reservas isOpen={modalIsOpen} onRequestClose={closeModal} />
         </section>
     )
 }
