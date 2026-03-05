@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: rgb(226, 223, 223);
+  --color-secondary: #1c8188;
+  --color-tertiary: black;
+  --color-quaternary: rgb(218, 214, 214);
+  --color-quinary: #24b7c2;
+  --color-senary: black;
+  --color-septenary: #43aa8b;
+  --color-octonary: white;
+  --color-nonary: #b9b5b1;
+  --color-denary: #277da1;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-playwrite), sans-serif;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-primary);
+}
